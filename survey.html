@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Neev — Your Fitness Survey</title>
+  <meta name="description" content="Take a 2-minute fitness survey and get your personalized workout and diet plan for free.">
+  <meta name="theme-color" content="#050505">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="navbar scrolled" id="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo">neev<span>.</span></a>
+      <div style="font-size:0.9rem;color:var(--text-muted)">Your Fitness Survey</div>
+    </div>
+  </nav>
+
+  <div class="survey-page">
+    <div class="container survey-container">
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill" style="width: 25%"></div>
+      </div>
+
+      <!-- Step 1: Basic Info -->
+      <div class="survey-step active" id="step1">
+        <h2>Let's start with the <span class="text-gradient">basics</span></h2>
+        <p>Tell us about yourself so we can calculate your needs accurately.</p>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" placeholder="What should we call you?">
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="you@example.com">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="age">Age</label>
+            <input type="number" id="age" placeholder="e.g. 21" min="14" max="80" required>
+          </div>
+          <div class="form-group">
+            <label for="gender">Gender</label>
+            <select id="gender" required>
+              <option value="" disabled selected>Select</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="height">Height (cm)</label>
+            <input type="number" id="height" placeholder="e.g. 175" min="100" max="250" required>
+          </div>
+          <div class="form-group">
+            <label for="weight">Weight (kg)</label>
+            <input type="number" id="weight" placeholder="e.g. 70" min="30" max="250" required>
+          </div>
+        </div>
+        <div class="survey-nav">
+          <div></div>
+          <button class="btn btn-primary" onclick="nextStep(1)">Next →</button>
+        </div>
+      </div>
+
+      <!-- Step 2: Goals -->
+      <div class="survey-step" id="step2">
+        <h2>What's your <span class="text-gradient">goal</span>?</h2>
+        <p>This determines your calorie target and training approach.</p>
+        <div class="form-group">
+          <label>Primary Goal</label>
+          <div class="option-cards" id="goalCards">
+            <div class="option-card" data-value="fat_loss" onclick="selectOption(this, 'goal')">
+              <div class="icon">🔥</div>
+              <h4>Fat Loss</h4>
+              <p>Lose fat, get lean</p>
+            </div>
+            <div class="option-card" data-value="muscle_gain" onclick="selectOption(this, 'goal')">
+              <div class="icon">💪</div>
+              <h4>Muscle Gain</h4>
+              <p>Build size & strength</p>
+            </div>
+            <div class="option-card" data-value="recomp" onclick="selectOption(this, 'goal')">
+              <div class="icon">⚡</div>
+              <h4>Recomposition</h4>
+              <p>Lose fat & gain muscle</p>
+            </div>
+            <div class="option-card" data-value="maintain" onclick="selectOption(this, 'goal')">
+              <div class="icon">⚖️</div>
+              <h4>Maintain</h4>
+              <p>Stay where I am</p>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Experience Level</label>
+          <div class="option-cards three-col" id="levelCards">
+            <div class="option-card" data-value="beginner" onclick="selectOption(this, 'level')">
+              <div class="icon">🌱</div>
+              <h4>Beginner</h4>
+              <p>New to the gym</p>
+            </div>
+            <div class="option-card" data-value="intermediate" onclick="selectOption(this, 'level')">
+              <div class="icon">🌿</div>
+              <h4>Intermediate</h4>
+              <p>6+ months training</p>
+            </div>
+            <div class="option-card" data-value="advanced" onclick="selectOption(this, 'level')">
+              <div class="icon">🌳</div>
+              <h4>Advanced</h4>
+              <p>2+ years consistent</p>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>How many days can you train per week?</label>
+          <div class="option-cards" id="daysCards">
+            <div class="option-card" data-value="3" onclick="selectOption(this, 'days')">
+              <h4>3 Days</h4>
+            </div>
+            <div class="option-card" data-value="4" onclick="selectOption(this, 'days')">
+              <h4>4 Days</h4>
+            </div>
+            <div class="option-card" data-value="5" onclick="selectOption(this, 'days')">
+              <h4>5 Days</h4>
+            </div>
+            <div class="option-card" data-value="6" onclick="selectOption(this, 'days')">
+              <h4>6 Days</h4>
+            </div>
+          </div>
+        </div>
+        <div class="survey-nav">
+          <button class="btn btn-secondary" onclick="prevStep(2)">← Back</button>
+          <button class="btn btn-primary" onclick="nextStep(2)">Next →</button>
+        </div>
+      </div>
+
+      <!-- Step 3: Diet -->
+      <div class="survey-step" id="step3">
+        <h2>Let's talk <span class="text-gradient">food</span></h2>
+        <p>We'll build a meal plan around what you actually eat.</p>
+        <div class="form-group">
+          <label>Diet Type</label>
+          <div class="option-cards three-col" id="dietCards">
+            <div class="option-card" data-value="vegetarian" onclick="selectOption(this, 'diet')">
+              <div class="icon">🥦</div>
+              <h4>Vegetarian</h4>
+              <p>No meat or eggs</p>
+            </div>
+            <div class="option-card" data-value="eggetarian" onclick="selectOption(this, 'diet')">
+              <div class="icon">🥚</div>
+              <h4>Eggetarian</h4>
+              <p>Veg + eggs</p>
+            </div>
+            <div class="option-card" data-value="nonveg" onclick="selectOption(this, 'diet')">
+              <div class="icon">🍗</div>
+              <h4>Non-Vegetarian</h4>
+              <p>Everything goes</p>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Cuisine Preference</label>
+          <div class="option-cards three-col" id="cuisineCards">
+            <div class="option-card" data-value="indian" onclick="selectOption(this, 'cuisine')">
+              <div class="icon">🇮🇳</div>
+              <h4>Indian</h4>
+              <p>Dal, roti, rice, curry</p>
+            </div>
+            <div class="option-card" data-value="international" onclick="selectOption(this, 'cuisine')">
+              <div class="icon">🌍</div>
+              <h4>International</h4>
+              <p>Pasta, salads, wraps</p>
+            </div>
+            <div class="option-card" data-value="both" onclick="selectOption(this, 'cuisine')">
+              <div class="icon">🍽️</div>
+              <h4>Both</h4>
+              <p>Mix of everything</p>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="allergies">Any allergies or restrictions?</label>
+          <select id="allergies">
+            <option value="none">None</option>
+            <option value="dairy">Dairy-free</option>
+            <option value="gluten">Gluten-free</option>
+            <option value="both">Dairy & Gluten-free</option>
+          </select>
+        </div>
+        <div class="survey-nav">
+          <button class="btn btn-secondary" onclick="prevStep(3)">← Back</button>
+          <button class="btn btn-primary" onclick="nextStep(3)">Next →</button>
+        </div>
+      </div>
+
+      <!-- Step 4: Lifestyle -->
+      <div class="survey-step" id="step4">
+        <h2>Your <span class="text-gradient">lifestyle</span></h2>
+        <p>This helps us fine-tune your calorie needs and recommendations.</p>
+        <div class="form-group">
+          <label>Activity Level (outside of gym)</label>
+          <div class="option-cards" id="activityCards">
+            <div class="option-card" data-value="sedentary" onclick="selectOption(this, 'activity')">
+              <div class="icon">🪑</div>
+              <h4>Sedentary</h4>
+              <p>Desk job, little movement</p>
+            </div>
+            <div class="option-card" data-value="light" onclick="selectOption(this, 'activity')">
+              <div class="icon">🚶</div>
+              <h4>Lightly Active</h4>
+              <p>Some walking, light work</p>
+            </div>
+            <div class="option-card" data-value="moderate" onclick="selectOption(this, 'activity')">
+              <div class="icon">🏃</div>
+              <h4>Moderately Active</h4>
+              <p>Active job or daily cardio</p>
+            </div>
+            <div class="option-card" data-value="very_active" onclick="selectOption(this, 'activity')">
+              <div class="icon">⚡</div>
+              <h4>Very Active</h4>
+              <p>Physical job + active lifestyle</p>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="sleep">Average Sleep (hours)</label>
+            <select id="sleep">
+              <option value="less6">Less than 6 hrs</option>
+              <option value="6-7">6-7 hours</option>
+              <option value="7-8" selected>7-8 hours</option>
+              <option value="8+">8+ hours</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="water">Daily Water Intake</label>
+            <select id="water">
+              <option value="less2">Less than 2L</option>
+              <option value="2-3">2-3 Litres</option>
+              <option value="3+">3+ Litres</option>
+            </select>
+          </div>
+        </div>
+        <div class="survey-nav">
+          <button class="btn btn-secondary" onclick="prevStep(4)">← Back</button>
+          <button class="btn btn-primary btn-lg" onclick="submitSurvey()" id="submitBtn">🚀 Generate My Plan</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/survey.js"></script>
+
+</body>
+</html>

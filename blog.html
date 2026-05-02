@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Neev Blog — Fitness Tips, Diet Plans & Workout Guides</title>
+  <meta name="description" content="Science-backed fitness articles on diet plans, workout routines, supplements, and healthy lifestyle tips for Indians.">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="navbar scrolled">
+    <div class="container">
+      <a href="index.html" class="nav-logo">neev<span>.</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="survey.html">Get Plan</a></li>
+        <li><a href="#" style="color:var(--primary)">Blog</a></li>
+      </ul>
+      <a href="survey.html" class="nav-cta">Get Free Plan →</a>
+      <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </nav>
+
+  <div class="blog-page">
+    <div class="container">
+      <div class="section-header fade-in" style="padding-top:20px;">
+        <h1>The Neev <span class="text-gradient">Blog</span></h1>
+        <p>Evidence-based fitness articles to help you train smarter, eat better, and build your foundation.</p>
+      </div>
+
+      <div class="blog-grid" style="display:none;">
+        <a href="articles/vegetarian-protein-diet.html" class="card blog-card fade-in" style="text-decoration:none;color:inherit;">
+          <div class="blog-card-image">🥦</div>
+          <h3>Complete Vegetarian High-Protein Diet Plan for Indians</h3>
+          <p>Hit 100g+ protein daily without chicken. Real Indian meals with macro breakdowns included.</p>
+          <div class="blog-meta">📅 April 2026 · 8 min read</div>
+        </a>
+
+        <a href="articles/beginner-gym-guide.html" class="card blog-card fade-in fade-in-delay-1" style="text-decoration:none;color:inherit;">
+          <div class="blog-card-image">🏋️</div>
+          <h3>Beginner's Guide to the Gym — Your First 30 Days</h3>
+          <p>Everything you need to know before stepping into the gym. Exercises, form, routine, and what to expect.</p>
+          <div class="blog-meta">📅 April 2026 · 10 min read</div>
+        </a>
+
+        <a href="articles/creatine-guide.html" class="card blog-card fade-in fade-in-delay-2" style="text-decoration:none;color:inherit;">
+          <div class="blog-card-image">⚡</div>
+          <h3>Creatine: Everything You Need to Know (2026)</h3>
+          <p>What it does, how to take it, loading vs. no loading, side effects myths busted. The definitive guide.</p>
+          <div class="blog-meta">📅 April 2026 · 7 min read</div>
+        </a>
+
+        <a href="articles/push-pull-legs.html" class="card blog-card fade-in" style="text-decoration:none;color:inherit;">
+          <div class="blog-card-image">💪</div>
+          <h3>Push Pull Legs — The Best Split for Muscle Gain</h3>
+          <p>Why PPL is the gold standard for intermediates. Full 6-day program with sets, reps, and progression.</p>
+          <div class="blog-meta">📅 April 2026 · 12 min read</div>
+        </a>
+
+        <a href="articles/calorie-macro-guide.html" class="card blog-card fade-in fade-in-delay-1" style="text-decoration:none;color:inherit;">
+          <div class="blog-card-image">🔢</div>
+          <h3>How to Calculate Your Calories & Macros (Step by Step)</h3>
+          <p>TDEE, BMR, deficit, surplus — explained simply. Learn to calculate your own numbers from scratch.</p>
+          <div class="blog-meta">📅 April 2026 · 9 min read</div>
+        </a>
+
+        <a href="articles/indian-bulking-diet.html" class="card blog-card fade-in fade-in-delay-2" style="text-decoration:none;color:inherit;">
+          <div class="blog-card-image">🍛</div>
+          <h3>Indian Bulking Diet Plan — 3000+ Calories on a Budget</h3>
+          <p>Gain muscle mass with affordable Indian meals. Full 7-day meal plan for both veg and non-veg bulkers.</p>
+          <div class="blog-meta">📅 April 2026 · 11 min read</div>
+        </a>
+      </div>
+
+      <!-- CTA -->
+      <div class="card fade-in" style="padding:48px;text-align:center;margin-top:64px;background:var(--gradient-subtle);border-color:rgba(245,158,11,0.2);">
+        <h2>Want a plan built for <span class="text-gradient">you</span>?</h2>
+        <p style="margin:12px auto 24px;max-width:450px;">Take our 2-minute survey and get a personalized workout + diet plan. Free, no sign-up.</p>
+        <a href="survey.html" class="btn btn-primary btn-lg">Get Your Free Plan →</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer" style="margin-top:80px;">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">neev<span>.</span></div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="survey.html">Get Plan</a></li>
+          <li><a href="https://instagram.com/_adityagaikwad_" target="_blank" rel="noopener">Instagram</a></li>
+        </ul>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Neev. Built with 💪 by Aditya.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/animations.js"></script>
+
+  <script>
+    document.getElementById('mobileToggle')?.addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('mobile-open');
+    });
+
+  </script>
+</body>
+</html>
