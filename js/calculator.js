@@ -1,12 +1,10 @@
 // TDEE & Macro Calculator — Mifflin-St Jeor Equation
 
 function calculateBMR(weight, height, age, gender) {
-  // Mifflin-St Jeor
-  if (gender === 'male') {
-    return (10 * weight) + (6.25 * height) - (5 * age) + 5;
-  } else {
-    return (10 * weight) + (6.25 * height) - (5 * age) - 161;
-  }
+  const base = (10 * weight) + (6.25 * height) - (5 * age);
+  if (gender === 'male') return base + 5;
+  if (gender === 'female') return base - 161;
+  return base - 78; // 'other': average of male (+5) and female (-161) constants
 }
 
 function getActivityMultiplier(activity) {
