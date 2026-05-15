@@ -39,19 +39,19 @@ function calculateMacros(targetCalories, weight, goal) {
 
   switch (goal) {
     case 'fat_loss':
-      proteinMultiplier = 2.2;
+      proteinMultiplier = 1.8;
       fatPercent = 0.25;
       break;
     case 'muscle_gain':
-      proteinMultiplier = 2.0;
+      proteinMultiplier = 1.8;
       fatPercent = 0.25;
       break;
     case 'recomp':
-      proteinMultiplier = 2.2;
+      proteinMultiplier = 2.0;
       fatPercent = 0.25;
       break;
     default:
-      proteinMultiplier = 1.8;
+      proteinMultiplier = 1.6;
       fatPercent = 0.3;
   }
 
