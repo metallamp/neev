@@ -197,8 +197,44 @@ const mealDB = {
   }
 };
 
-// Copy international eggetarian = international nonveg (same meals work)
-mealDB.international.eggetarian = mealDB.international.nonveg;
+mealDB.international.eggetarian = {
+  breakfast: [
+    { name: 'Scrambled Eggs (3) + Avocado Toast', calories: 440, protein: 24, carbs: 30, fat: 26 },
+    { name: 'Veggie Omelette (3 eggs) + Toast', calories: 380, protein: 24, carbs: 26, fat: 20 },
+    { name: 'Greek Yogurt Parfait + Granola + Boiled Egg', calories: 420, protein: 24, carbs: 46, fat: 14 },
+    { name: 'Protein Pancakes (egg-based) + Berries', calories: 380, protein: 26, carbs: 42, fat: 10 },
+    { name: 'Overnight Oats + Boiled Eggs (2)', calories: 420, protein: 24, carbs: 48, fat: 14 },
+    { name: 'Egg White Omelette + Whole Wheat Toast', calories: 340, protein: 26, carbs: 28, fat: 10 },
+    { name: 'Tofu Scramble + Fried Egg + Toast', calories: 400, protein: 26, carbs: 34, fat: 18 },
+  ],
+  lunch: [
+    { name: 'Egg Salad Wrap + Side Salad', calories: 480, protein: 24, carbs: 42, fat: 22 },
+    { name: 'Quinoa Buddha Bowl + Poached Eggs (2)', calories: 520, protein: 28, carbs: 54, fat: 18 },
+    { name: 'Pasta Primavera + Fried Egg', calories: 520, protein: 22, carbs: 64, fat: 18 },
+    { name: 'Veggie Stir Fry + Brown Rice + Egg', calories: 480, protein: 20, carbs: 60, fat: 16 },
+    { name: 'Greek Salad + Pita + Hard Boiled Eggs (2)', calories: 460, protein: 22, carbs: 40, fat: 22 },
+    { name: 'Lentil Soup + Bread + Boiled Eggs (2)', calories: 480, protein: 28, carbs: 52, fat: 12 },
+    { name: 'Black Bean Bowl + Fried Eggs (2)', calories: 520, protein: 28, carbs: 58, fat: 16 },
+  ],
+  snacks: [
+    { name: 'Protein Shake + Boiled Egg', calories: 300, protein: 36, carbs: 24, fat: 8 },
+    { name: 'Hard Boiled Eggs (2) + Apple', calories: 220, protein: 16, carbs: 18, fat: 10 },
+    { name: 'Greek Yogurt + Almonds', calories: 250, protein: 16, carbs: 18, fat: 12 },
+    { name: 'Cottage Cheese + Berries', calories: 200, protein: 18, carbs: 16, fat: 6 },
+    { name: 'Egg Muffins (2) + Fruit', calories: 240, protein: 18, carbs: 20, fat: 10 },
+    { name: 'Hummus + Carrot Sticks + Boiled Egg', calories: 220, protein: 14, carbs: 18, fat: 10 },
+    { name: 'Rice Cakes + PB + Banana', calories: 280, protein: 10, carbs: 38, fat: 12 },
+  ],
+  dinner: [
+    { name: 'Shakshuka (2 eggs) + Pita Bread', calories: 420, protein: 22, carbs: 42, fat: 18 },
+    { name: 'Egg Fried Rice + Stir-Fried Veggies', calories: 460, protein: 20, carbs: 58, fat: 16 },
+    { name: 'Veggie Pasta + Parmesan + Fried Egg', calories: 520, protein: 24, carbs: 60, fat: 18 },
+    { name: 'Stuffed Bell Peppers + Egg + Quinoa', calories: 420, protein: 22, carbs: 48, fat: 14 },
+    { name: 'Frittata + Side Salad + Bread', calories: 400, protein: 24, carbs: 32, fat: 18 },
+    { name: 'Mushroom & Egg Stir Fry + Brown Rice', calories: 440, protein: 20, carbs: 52, fat: 16 },
+    { name: 'Lentil Bolognese + Spaghetti + Fried Egg', calories: 480, protein: 28, carbs: 60, fat: 12 },
+  ]
+};
 
 const ALLERGEN_KEYWORDS = {
   dairy: ['curd', 'paneer', 'milk', 'yogurt', 'cream', 'cheese', 'whey', 'raita', 'butter'],
