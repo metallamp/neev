@@ -458,18 +458,19 @@ img.emoji {
   .fade-in { opacity: 1 !important; transform: none !important; transition: none !important; }
   .navbar, .results-actions, .footer { display: none !important; }
   body { background: #fff !important; color: #111 !important; }
-  p { color: #444 !important; }
-  h1, h2, h3, h4 { color: #111 !important; }
+  * { color: #111 !important; }
   .text-gradient { color: #16a34a !important; background: none !important; -webkit-background-clip: unset !important; -webkit-text-fill-color: unset !important; }
+  .stat-card .stat-value { color: #16a34a !important; font-size: 1.6rem !important; }
+  .meal-day h3 { color: #16a34a !important; }
+  .workout-day .day-label { color: #16a34a !important; }
   .card { background: #fff !important; border: 1px solid #ddd !important; box-shadow: none !important; break-inside: avoid; }
-  .stat-card .stat-value { color: #16a34a !important; }
-  .stat-unit, .text-dim { color: #666 !important; }
-  .text-muted { color: #555 !important; }
-  a { color: #16a34a !important; }
   .meal-day { overflow-x: visible !important; break-inside: avoid; }
   .meal-table { min-width: unset !important; }
   .meal-table th, .meal-table td { white-space: normal !important; }
   .workout-day { break-inside: avoid; }
   .plan-section { break-before: auto; }
   .macro-bar { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  .macro-bar .protein { background: #16a34a !important; }
+  .macro-bar .carbs { background: #f59e0b !important; }
+  .macro-bar .fat { background: #ef4444 !important; }
 }
