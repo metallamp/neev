@@ -40,7 +40,7 @@ function renderResults(data) {
   document.getElementById('macroLegend').innerHTML = `
     <div class="macro-legend-item"><div class="dot" style="background:var(--green)"></div>Protein ${macros.protein.percent}%</div>
     <div class="macro-legend-item"><div class="dot" style="background:#f59e0b"></div>Carbs ${macros.carbs.percent}%</div>
-    <div class="macro-legend-item"><div class="dot" style="background:#f97316"></div>Fat ${macros.fat.percent}%</div>
+    <div class="macro-legend-item"><div class="dot" style="background:#ef4444"></div>Fat ${macros.fat.percent}%</div>
   `;
 
   // Macro cards
@@ -56,7 +56,7 @@ function renderResults(data) {
       <div style="font-size:0.8rem;color:var(--text-dim);">${macros.carbs.calories} kcal</div>
     </div>
     <div class="card" style="text-align:center;padding:20px;">
-      <div style="font-size:2rem;font-weight:800;color:#f97316;font-family:var(--font-heading);">${macros.fat.grams}g</div>
+      <div style="font-size:2rem;font-weight:800;color:#ef4444;font-family:var(--font-heading);">${macros.fat.grams}g</div>
       <div style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Fat</div>
       <div style="font-size:0.8rem;color:var(--text-dim);">${macros.fat.calories} kcal</div>
     </div>

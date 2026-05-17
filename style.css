@@ -305,7 +305,7 @@ section { padding: 100px 0; }
 .macro-bar { display: flex; height: 12px; border-radius: 100px; overflow: hidden; margin: 24px 0; }
 .macro-bar .protein { background: var(--green); }
 .macro-bar .carbs { background: #f59e0b; }
-.macro-bar .fat { background: #f97316; }
+.macro-bar .fat { background: #ef4444; }
 .macro-legend { display: flex; gap: 24px; justify-content: center; }
 .macro-legend-item { display: flex; align-items: center; gap: 8px; font-size: 0.9rem; }
 .macro-legend-item .dot { width: 10px; height: 10px; border-radius: 50%; }
