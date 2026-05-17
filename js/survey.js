@@ -97,18 +97,17 @@ function prevStep(current) {
   showStep(current - 1);
 }
 
-function subscribeToMailchimp(email, name) {
+function collectEmail(email, name) {
   if (!email) return;
-  window._mcCb = function() {};
-  const params = `EMAIL=${encodeURIComponent(email)}&FNAME=${encodeURIComponent(name)}&c=_mcCb`;
-  const script = document.createElement('script');
-  script.src = `https://ne-ev.us14.list-manage.com/subscribe/post-json?u=2babd735cc9a86cb5368f156d&id=77e5b18ef0&${params}`;
-  document.body.appendChild(script);
+  fetch('https://script.google.com/macros/s/AKfycbwjcGn07R8zKeBgyFvUP27FTeRWc5QgdJCNDNR90vLnQmlG4Je1xq0_IGSJRp2ShuIF/exec', {
+    method: 'POST',
+    body: JSON.stringify({ email, name }),
+  }).catch(() => {});
 }
 
 function submitSurvey() {
   if (!validateStep(4)) return;
   localStorage.setItem('neev_survey', JSON.stringify(surveyData));
-  subscribeToMailchimp(surveyData.email, surveyData.name);
+  collectEmail(surveyData.email, surveyData.name);
   window.location.href = 'results.html';
 }
