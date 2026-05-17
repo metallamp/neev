@@ -36,8 +36,14 @@ function validateStep(step) {
     const gender = document.getElementById('gender').value;
     const heightVal = document.getElementById('height').value;
     const weightVal = document.getElementById('weight').value;
-    if (!ageVal || !gender || !heightVal || !weightVal) {
+    const emailVal = document.getElementById('email').value.trim();
+    if (!emailVal || !ageVal || !gender || !heightVal || !weightVal) {
       alert('Please fill in all required fields.');
+      return false;
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(emailVal)) {
+      alert('Please enter a valid email address.');
       return false;
     }
     const age = parseInt(ageVal);
@@ -47,7 +53,7 @@ function validateStep(step) {
     if (height < 100 || height > 250) { alert('Please enter a valid height (100–250 cm).'); return false; }
     if (weight < 30 || weight > 250) { alert('Please enter a valid weight (30–250 kg).'); return false; }
     surveyData.name = document.getElementById('name').value || 'Champion';
-    surveyData.email = document.getElementById('email').value || '';
+    surveyData.email = emailVal;
     surveyData.age = age;
     surveyData.gender = gender;
     surveyData.height = height;
