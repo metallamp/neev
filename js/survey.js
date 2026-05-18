@@ -97,20 +97,17 @@ function prevStep(current) {
   showStep(current - 1);
 }
 
-function collectEmail(email, name) {
-  if (!email) return;
-  fetch('https://script.google.com/macros/s/AKfycbwjcGn07R8zKeBgyFvUP27FTeRWc5QgdJCNDNR90vLnQmlG4Je1xq0_IGSJRp2ShuIF/exec', {
-    method: 'POST',
-    mode: 'no-cors',
-    keepalive: true,
-    headers: { 'Content-Type': 'text/plain' },
-    body: JSON.stringify({ email, name }),
-  }).catch(() => {});
-}
-
 function submitSurvey() {
   if (!validateStep(4)) return;
   localStorage.setItem('neev_survey', JSON.stringify(surveyData));
-  collectEmail(surveyData.email, surveyData.name);
-  window.location.href = 'results.html';
+
+  const url = 'https://script.google.com/macros/s/AKfycbwjcGn07R8zKeBgyFvUP27FTeRWc5QgdJCNDNR90vLnQmlG4Je1xq0_IGSJRp2ShuIF/exec';
+  const payload = JSON.stringify({ email: surveyData.email, name: surveyData.name });
+
+  // Navigate after fetch completes (follows redirects unlike sendBeacon); timeout ensures no hang
+  let navigated = false;
+  function go() { if (!navigated) { navigated = true; window.location.href = 'results.html'; } }
+  setTimeout(go, 3000);
+  fetch(url, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain' }, body: payload })
+    .catch(() => {}).finally(go);
 }
