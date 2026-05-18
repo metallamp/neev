@@ -102,6 +102,7 @@ function collectEmail(email, name) {
   fetch('https://script.google.com/macros/s/AKfycbwjcGn07R8zKeBgyFvUP27FTeRWc5QgdJCNDNR90vLnQmlG4Je1xq0_IGSJRp2ShuIF/exec', {
     method: 'POST',
     mode: 'no-cors',
+    keepalive: true,
     headers: { 'Content-Type': 'text/plain' },
     body: JSON.stringify({ email, name }),
   }).catch(() => {});
