@@ -137,8 +137,10 @@ function renderResults(data) {
 }
 
 function printPlan() {
+  // Force all animated sections visible before printing so nothing renders blank
   document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
-  window.print();
+  // Brief delay lets the browser repaint before the print dialog opens
+  setTimeout(() => window.print(), 300);
 }
 
 function shareNeev() {
